@@ -9,8 +9,8 @@ from labelme import utils
 from labelme.logger import logger
 
 def main():
-    json_dir = r"D:\GOLD\images"     # JSON 标注文件路径
-    out_dir = r"D:\GOLD"             # 输出路径
+    json_dir = r"./data/images"     # JSON 标注文件路径
+    out_dir = r"./data/"             # 输出路径
     img_out_dir = osp.join(out_dir, "image")
     mask_out_dir = osp.join(out_dir, "mask")
 
