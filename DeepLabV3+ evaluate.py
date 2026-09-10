@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset, random_split
 from sklearn.metrics import confusion_matrix
-from GOLDUnet import UNet
+
 
 # ===================== 固定随机种子，保证结果可复现 =====================
 def set_seed(seed=42):
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
     device = torch.device('cpu')
-    model = UNet(n_classes=3).to(device)
+    model = deeplab(n_classes=3).to(device)
 
     # 正则化：权重衰减
     optimizer = optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
