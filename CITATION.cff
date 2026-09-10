@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+
+title: "Automatic equatorial ionospheric irregularities detection from GOLD images using deep learning"
+
+message: "If you use this software or code, please cite this repository."
+
+type: software
+
+authors:
+  - family-names: "Yumei"
+    given-names: "Li"
+
+repository-code: "https://github.com/LYM28/GOLD-GNSS-EPB-detection"
+
+keywords:
+  - GOLD
+  - EPB
+  - EIA
+  - Ionospheric irregularities
+  - TEC
+  - ROTI
+  - Deep learning
+  - UNet
+  - DeepLabV3+
+  - FPN
+license: MIT
