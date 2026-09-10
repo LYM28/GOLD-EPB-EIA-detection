@@ -88,7 +88,7 @@ if __name__ == '__main__':
     device = torch.device('cpu')
 
     # 轻量 backbone，不卡电脑
-    model = smp.FPN(
+    model = smp.unet(
         encoder_name="resnet18",
         encoder_weights="imagenet",
         classes=3
