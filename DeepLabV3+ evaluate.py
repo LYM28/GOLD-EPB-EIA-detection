@@ -79,7 +79,7 @@ def compute_metrics(model, loader, device, num_classes=3):
 
 # ===================== 主程序：防过拟合 + 分训练/测试集 =====================
 if __name__ == '__main__':
-    full_dataset = SegDataset(r"D:\GOLD\image", r"D:\GOLD\mask", augment=False)
+    full_dataset = SegDataset(r"./data/image", r"./data/mask", augment=False)
 
     # 严格划分训练集 / 测试集
     test_size = int(0.15 * len(full_dataset))
