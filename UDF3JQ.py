@@ -190,53 +190,11 @@ def compare_models(models, loader, device, save_dir):
             plt.close()
 
 
-# ====== 绘制训练曲线 ======
-def plot_training_curves(history_dict, save_path="training_curves.png"):
-    plt.figure(figsize=(10, 6))
-    for model_name, history in history_dict.items():
-        plt.plot(history["train_loss"], label=f"{model_name} Train")
-        plt.plot(history["val_loss"], label=f"{model_name} Val")
-    plt.xlabel("Epoch")
-    plt.ylabel("Loss")
-    plt.title("Training & Validation Loss Curves")
-    plt.legend()
-    plt.grid(True)
-    plt.savefig(save_path, dpi=300)
-    plt.close()
-
-
-# ====== 绘制性能柱状对比图（核心修改：新增加权准确率柱状图） ======
-def plot_metrics_bar(results_df, save_dir):
-    # 新增 "Weighted_Acc" 指标，与原有指标一起可视化
-    metrics = ["Pixel_Acc", "Weighted_Acc", "IoU_EPB", "IoU_EIA", "Dice_EPB", "Dice_EIA"]
-    titles = {
-        "Pixel_Acc": "Original Pixel Accuracy",
-        "Weighted_Acc": "Weighted Accuracy (BG=0.1, EPB/EIA=0.45)",  # 标注权重分配
-        "IoU_EPB": "IoU - EPB",
-        "IoU_EIA": "IoU - EIA",
-        "Dice_EPB": "Dice - EPB",
-        "Dice_EIA": "Dice - EIA"
-    }
-
-    for metric in metrics:
-        plt.figure(figsize=(6, 4))
-        # 三个模型用统一颜色区分，保持对比一致性
-        plt.bar(results_df["Model"], results_df[metric], color=["#1f77b4", "#ff7f0e", "#2ca02c"])
-        plt.ylabel(metric)
-        plt.title(titles[metric])
-        plt.ylim(0, 1)  # 准确率/IoU/Dice均在0-1区间
-        # 在柱状图顶部添加数值标签
-        for i, val in enumerate(results_df[metric]):
-            plt.text(i, val + 0.01, f"{val:.2f}", ha="center", fontsize=10)
-        plt.savefig(os.path.join(save_dir, f"{metric}_bar.png"), dpi=300)
-        plt.close()
-
-
 # ====== 主程序（核心修改：接收并保存加权准确率） ======
 if __name__ == "__main__":
-    image_dir = r"D:\GOLD\image"
-    mask_dir = r"D:\GOLD\mask"
-    save_dir = r"D:\GOLD\results2"
+    image_dir = r"./data/image"
+    mask_dir = r"./data/mask"
+    save_dir = r"./data/"
     os.makedirs(save_dir, exist_ok=True)
 
     dataset = SegDataset(image_dir, mask_dir)
