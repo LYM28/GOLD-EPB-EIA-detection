@@ -88,7 +88,7 @@ if __name__ == '__main__':
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
     device = torch.device('cpu')
 
-    model = smp.DeepLabV3Plus(
+    model = smp.fpn(
         encoder_name="resnet18",  # 小模型，电脑不卡
         encoder_weights="imagenet",
         classes=3
@@ -120,7 +120,7 @@ if __name__ == '__main__':
         if f1 > best_f1:
             best_f1 = f1
             wait = 0
-            torch.save(model.state_dict(), "deeplab_best.pth")
+            torch.save(model.state_dict(), "fpn_best.pth")
         else:
             wait += 1
             if wait >= patience:
@@ -128,7 +128,7 @@ if __name__ == '__main__':
                 break
 
     # 最终指标
-    model.load_state_dict(torch.load("deeplab_best.pth"))
+    model.load_state_dict(torch.load("fpn_best.pth"))
     acc, p, r, f1, mAP = compute_metrics(model, test_loader, device)
 
     print("\n" + "="*55)
