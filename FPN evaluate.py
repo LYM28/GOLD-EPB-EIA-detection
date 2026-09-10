@@ -75,10 +75,10 @@ def compute_metrics(model, loader, device, num_classes=3):
         p.mean(), r.mean(), f1.mean(), p.mean()
     )
 
-# ===================== 主程序：只跑 DeepLabV3+ =====================
+# ===================== 主程序 =====================
 if __name__ == '__main__':
     # 数据集划分
-    full_dataset = SegDataset(r"D:\GOLD\image", r"D:\GOLD\mask")
+    full_dataset = SegDataset(r"./data/image", r"./data/mask")
     test_size = int(0.15 * len(full_dataset))
     train_size = len(full_dataset) - test_size
     train_dataset, test_dataset = random_split(full_dataset, [train_size, test_size])
@@ -88,7 +88,6 @@ if __name__ == '__main__':
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
     device = torch.device('cpu')
 
-    # ===================== 🔥 只加载 DeepLabV3+ 一个模型 =====================
     model = smp.DeepLabV3Plus(
         encoder_name="resnet18",  # 小模型，电脑不卡
         encoder_weights="imagenet",
@@ -99,7 +98,7 @@ if __name__ == '__main__':
     criterion = nn.CrossEntropyLoss()
 
     # 训练
-    print("\n===== 开始训练 DeepLabV3+ =====")
+    print("\n===== 开始训练=====")
     best_f1 = 0
     patience = 5
     wait = 0
