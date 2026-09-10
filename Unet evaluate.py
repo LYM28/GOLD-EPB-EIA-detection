@@ -77,7 +77,7 @@ def compute_metrics(model, loader, device, num_classes=3):
 
 # 主程序：仅 FPN
 if __name__ == '__main__':
-    full_dataset = SegDataset(r"D:\GOLD\image", r"D:\GOLD\mask")
+    full_dataset = SegDataset(r"./data/image", r"./data/mask")
     test_size = int(0.15 * len(full_dataset))
     train_size = len(full_dataset) - test_size
     train_dataset, test_dataset = random_split(full_dataset, [train_size, test_size])
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     optimizer = optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
     criterion = nn.CrossEntropyLoss()
 
-    print("\n===== 开始训练 FPN =====")
+    print("\n===== 开始训练  =====")
     best_f1 = 0
     patience = 5
     wait = 0
