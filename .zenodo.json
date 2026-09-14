@@ -1,27 +1,26 @@
 {
-  "title": "Automatic equatorial ionospheric irregularities detection from GOLD images using deep learning",
-  "upload_type": "software",
-  "description": "This repository contains data processing codes, deep learning models, and supporting materials for detecting equatorial plasma bubbles and equatorial ionization anomaly using GOLD satellite observations in the American sector.",
-  "creators": [
-    {
-      "name": "Yumei Li"
-    }
-  ],
-  "keywords": [
-    "GOLD",
-    "Equatorial Plasma Bubble",
-    "EPB",
-    "Equatorial Ionization Anomaly",
-    "EIA",
-    "Ionospheric Irregularities",
-    "TEC",
-    "ROTI",
-    "Deep Learning",
-    "UNet",
-    "DeepLabV3+",
-    "FPN"
-  ],
-  "license": "MIT",
-  "access_right": "open",
-  "language": "eng"
+    "title": "GOLD EPB-EIA Detection: Automatic Detection and Segmentation of Equatorial Ionospheric Irregularities",
+    "upload_type": "software",
+    "description": "This repository provides data processing, deep learning model training, prediction, and evaluation codes for the automatic detection and segmentation of equatorial plasma bubbles (EPBs) and equatorial ionization anomalies (EIAs) from GOLD airglow observations. The repository includes implementations based on U-Net, DeepLabV3+, and Feature Pyramid Network (FPN). The associated annotated GOLD airglow image dataset is publicly available on Zenodo at https://doi.org/10.5281/zenodo.22705373.",
+    "creators": [
+        {
+            "name": "Yumei Li"
+        }
+    ],
+    "keywords": [
+        "GOLD",
+        "Equatorial Plasma Bubble",
+        "EPB",
+        "Equatorial Ionization Anomaly",
+        "EIA",
+        "Ionospheric Irregularities",
+        "Deep Learning",
+        "Semantic Segmentation",
+        "U-Net",
+        "DeepLabV3+",
+        "FPN"
+    ],
+    "license": "MIT",
+    "access_right": "open",
+    "language": "eng"
 }
