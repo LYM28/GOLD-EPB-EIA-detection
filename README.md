@@ -1,6 +1,4 @@
 # GOLD-EPB-EIA-detection
-Data processing and deep learning methods for detecting equatorial plasma bubbles and equatorial ionization anomaly using GOLD observations.
-# GOLD-EPB-EIA-detection
 
 Deep learning-based detection and segmentation of equatorial plasma bubbles (EPBs) and equatorial ionization anomalies (EIAs) from GOLD airglow observations.
 
